@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>scedQt</class>
+ <widget class="QMainWindow" name="scedQt">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>scedQt</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Fi&amp;le</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="actionExport"/>
+    <addaction name="actionPreferences"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelect"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionDelete"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="menuStyle">
+     <property name="title">
+      <string>&amp;Display Style</string>
+     </property>
+     <addaction name="actionWireframe"/>
+     <addaction name="actionSurfaces"/>
+    </widget>
+    <widget class="QMenu" name="menuDirection">
+     <property name="title">
+      <string>D&amp;irection</string>
+     </property>
+     <addaction name="actionTop"/>
+     <addaction name="actionBottom"/>
+     <addaction name="actionLeft"/>
+     <addaction name="actionRight"/>
+     <addaction name="actionFront"/>
+     <addaction name="actionBack"/>
+     <addaction name="actionCenter_2"/>
+    </widget>
+    <widget class="QMenu" name="menuShow_Toolbars">
+     <property name="title">
+      <string>Sho&amp;w Toolbars</string>
+     </property>
+     <addaction name="actionMain"/>
+     <addaction name="actionStatus_Bar"/>
+    </widget>
+    <widget class="QMenu" name="menuShow_Views">
+     <property name="title">
+      <string>Show &amp;Views</string>
+     </property>
+     <addaction name="actionObject_Tree"/>
+     <addaction name="actionObject_Props"/>
+     <addaction name="actionShowLayer"/>
+    </widget>
+    <addaction name="menuStyle"/>
+    <addaction name="actionShow_Axes"/>
+    <addaction name="actionShow_Scale"/>
+    <addaction name="separator"/>
+    <addaction name="menuDirection"/>
+    <addaction name="actionPerspective"/>
+    <addaction name="actionOrthogonal"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="separator"/>
+    <addaction name="actionReset_View"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Console"/>
+    <addaction name="menuShow_Toolbars"/>
+    <addaction name="menuShow_Views"/>
+   </widget>
+   <widget class="QMenu" name="menuGenerate">
+    <property name="title">
+     <string>&amp;Generate</string>
+    </property>
+    <addaction name="actionRender"/>
+    <addaction name="separator"/>
+    <addaction name="actionRe_Validate"/>
+    <addaction name="actionDebug_CSG_Tree"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionContext_Help"/>
+    <addaction name="actionVersion"/>
+   </widget>
+   <widget class="QMenu" name="menuInsert">
+    <property name="title">
+     <string>I&amp;nsert</string>
+    </property>
+    <widget class="QMenu" name="menuFunction">
+     <property name="title">
+      <string>&amp;Function</string>
+     </property>
+     <addaction name="actionBool_And"/>
+     <addaction name="actionBool_Intersect"/>
+     <addaction name="actionBool_Minus"/>
+     <addaction name="actionBool_Section"/>
+     <addaction name="separator"/>
+     <addaction name="actionExtrude"/>
+    </widget>
+    <widget class="QMenu" name="menuPrimitive">
+     <property name="title">
+      <string>&amp;Primitive</string>
+     </property>
+     <addaction name="actionCube"/>
+     <addaction name="actionSphere"/>
+     <addaction name="actionCylinder"/>
+     <addaction name="separator"/>
+     <addaction name="actionAddAmbient_Light"/>
+     <addaction name="actionAddLight"/>
+     <addaction name="actionAddCamera"/>
+    </widget>
+    <addaction name="menuPrimitive"/>
+    <addaction name="actionShowCSG_Window"/>
+    <addaction name="actionAddLayer"/>
+    <addaction name="separator"/>
+    <addaction name="menuFunction"/>
+    <addaction name="actionConvert_to_solid"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuInsert"/>
+   <addaction name="menuGenerate"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionQuit"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockObjects">
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>0</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Ob&amp;jects</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <widget class="QTreeView" name="treeView_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>130</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/document-new.png</normaloff>:/icons/document-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/document-open.png</normaloff>:/icons/document-open.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/document-save.png</normaloff>:/icons/document-save.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/document-save-as.png</normaloff>:/icons/document-save-as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sa&amp;ve as ...</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>&amp;Export</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>&amp;Preferences</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/application-exit.png</normaloff>:/icons/application-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+  </action>
+  <action name="actionWireframe">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Wireframe</string>
+   </property>
+  </action>
+  <action name="actionSurfaces">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Surfaces</string>
+   </property>
+  </action>
+  <action name="actionShow_Axes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Show Axes</string>
+   </property>
+  </action>
+  <action name="actionShow_Scale">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>S&amp;how Scale</string>
+   </property>
+  </action>
+  <action name="actionTop">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Top</string>
+   </property>
+  </action>
+  <action name="actionBottom">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Bottom</string>
+   </property>
+  </action>
+  <action name="actionLeft">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Left</string>
+   </property>
+  </action>
+  <action name="actionRight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Right</string>
+   </property>
+  </action>
+  <action name="actionFront">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Front</string>
+   </property>
+  </action>
+  <action name="actionBack">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Bac&amp;k</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>&amp;Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoo&amp;m Out</string>
+   </property>
+  </action>
+  <action name="actionReset_View">
+   <property name="text">
+    <string>&amp;Reset View</string>
+   </property>
+  </action>
+  <action name="actionPerspective">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Perspective</string>
+   </property>
+  </action>
+  <action name="actionOrthogonal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Orthogonal</string>
+   </property>
+  </action>
+  <action name="actionShow_Console">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show &amp;Console</string>
+   </property>
+  </action>
+  <action name="actionCenter_2">
+   <property name="text">
+    <string>&amp;Center</string>
+   </property>
+  </action>
+  <action name="actionRender">
+   <property name="text">
+    <string>&amp;Render</string>
+   </property>
+  </action>
+  <action name="actionRe_Validate">
+   <property name="text">
+    <string>Re-&amp;Validate</string>
+   </property>
+  </action>
+  <action name="actionDebug_CSG_Tree">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Debug CSG-Tree</string>
+   </property>
+  </action>
+  <action name="actionContext_Help">
+   <property name="text">
+    <string>&amp;Context Help</string>
+   </property>
+  </action>
+  <action name="actionVersion">
+   <property name="text">
+    <string>&amp;Version</string>
+   </property>
+  </action>
+  <action name="actionMain">
+   <property name="text">
+    <string>&amp;Main</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>&amp;Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>&amp;Redo</string>
+   </property>
+  </action>
+  <action name="actionSelect">
+   <property name="text">
+    <string>&amp;Select</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>&amp;Cut</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>C&amp;opy</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>&amp;Paste</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>&amp;Delete</string>
+   </property>
+  </action>
+  <action name="actionShowCSG_Window">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;CSG Window</string>
+   </property>
+  </action>
+  <action name="actionConvert_to_solid">
+   <property name="text">
+    <string>Convert to &amp;solid</string>
+   </property>
+  </action>
+  <action name="actionBool_And">
+   <property name="text">
+    <string>&amp;Bool Union</string>
+   </property>
+  </action>
+  <action name="actionBool_Intersect">
+   <property name="text">
+    <string>Bool &amp;Intersect</string>
+   </property>
+  </action>
+  <action name="actionBool_Minus">
+   <property name="text">
+    <string>Bool &amp;Minus</string>
+   </property>
+  </action>
+  <action name="actionBool_Section">
+   <property name="text">
+    <string>Bool &amp;Section</string>
+   </property>
+  </action>
+  <action name="actionExtrude">
+   <property name="text">
+    <string>&amp;Extrude</string>
+   </property>
+  </action>
+  <action name="actionCube">
+   <property name="text">
+    <string>&amp;Cube</string>
+   </property>
+  </action>
+  <action name="actionSphere">
+   <property name="text">
+    <string>&amp;Sphere</string>
+   </property>
+  </action>
+  <action name="actionCylinder">
+   <property name="text">
+    <string>C&amp;ylinder</string>
+   </property>
+  </action>
+  <action name="actionAddLight">
+   <property name="text">
+    <string>&amp;Light</string>
+   </property>
+  </action>
+  <action name="actionAddCamera">
+   <property name="text">
+    <string>Ca&amp;mera</string>
+   </property>
+  </action>
+  <action name="actionAddAmbient_Light">
+   <property name="text">
+    <string>&amp;Ambient Light</string>
+   </property>
+  </action>
+  <action name="actionObject_Props">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Object &amp;Props</string>
+   </property>
+  </action>
+  <action name="actionAddLayer">
+   <property name="text">
+    <string>&amp;Layer</string>
+   </property>
+  </action>
+  <action name="actionObject_Tree">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Object Tree</string>
+   </property>
+  </action>
+  <action name="actionStatus_Bar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Status Bar</string>
+   </property>
+  </action>
+  <action name="actionShowLayer">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Layer</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionQuit</sender>
+   <signal>triggered()</signal>
+   <receiver>scedQt</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
